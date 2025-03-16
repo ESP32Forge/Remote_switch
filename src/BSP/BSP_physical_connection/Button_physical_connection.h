@@ -23,7 +23,8 @@
  * enumerates.
  */
 #define BUTTONS    \
-  BUTTON(BUTTON_0)    
+  BUTTON(BUTTON_0) \   
+  BUTTON(BUTTON_1)
  
 /* Macro that describes the GPIO configurations of the buttons. 
  *
@@ -40,7 +41,8 @@
  *   
  */
 #define BUTTONS_CONFIGURATIONS                                                     \
-  BUTTON_CONFIG(BUTTON_0, GPIO_NUM_4, GPIO_PULLDOWN_ONLY, GPIO_INTR_POSEDGE, 800u)  
+  BUTTON_CONFIG(BUTTON_0, GPIO_NUM_4, GPIO_PULLDOWN_ONLY, GPIO_INTR_POSEDGE, 800u) \
+  BUTTON_CONFIG(BUTTON_1, GPIO_NUM_20, GPIO_PULLDOWN_ONLY, GPIO_INTR_POSEDGE, 800u)   
 
 /***************************************************************************************
  * Data Type Definitions

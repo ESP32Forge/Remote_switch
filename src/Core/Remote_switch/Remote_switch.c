@@ -203,6 +203,22 @@ static void remote_switch_handler_func(void *args)
           cmd.ID = LED_0;
           cmd.action = TOOGLE_LED;
           break;
+        case BUTTON_1:
+
+          cmd.ID = LED_0;
+          cmd.action = SET_PWM;
+
+          uint64_t num_of_presses = 0u;
+          get_num_of_presses(BUTTON_1, &num_of_presses);
+
+          /* Per each press, increment in 10 points the duty cycle. */
+          cmd.pwm = ((num_of_presses%9)*10u) + MIN_DUTY_CYCLE_PERC;
+
+          /* If the value is higher than 100%, return to 0%. */
+          if(cmd.pwm > MAX_DUTY_CYCLE_PERC)
+          {
+            cmd.pwm = MIN_DUTY_CYCLE_PERC;
+          }
         default:
           /* TODO: Handle this corner case. */
           break;
